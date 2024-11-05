@@ -27,6 +27,13 @@ namespace VROOM
         public TimeSpan Service { get; set; }
         
         /// <summary>
+        /// Total setup time for all routes.
+        /// </summary>
+        [JsonPropertyName("setup")]
+        [JsonConverter(typeof(TimeSpanSecondsToIntConverter))]
+        public TimeSpan Setup { get; set; }
+        
+        /// <summary>
         /// Total travel time for all routes.
         /// </summary>
         [JsonPropertyName("duration")]

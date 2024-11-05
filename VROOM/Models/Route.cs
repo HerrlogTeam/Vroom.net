@@ -26,6 +26,13 @@ namespace VROOM
         public int Cost { get; set; }
 
         /// <summary>
+        /// Total setup time for this route.
+        /// </summary>
+        [JsonPropertyName("setup")]
+        [JsonConverter(typeof(TimeSpanSecondsToIntConverter))]
+        public TimeSpan Setup { get; set; }
+
+        /// <summary>
         /// Total service time for this route.
         /// </summary>
         [JsonPropertyName("service")]

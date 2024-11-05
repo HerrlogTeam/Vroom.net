@@ -39,6 +39,13 @@ namespace VROOM
         public TimeSpan? Duration { get; set; }
         
         /// <summary>
+        /// Job Setup duration. In VROOM this is the "setup" property.
+        /// </summary>
+        [JsonPropertyName("setup")]
+        [JsonConverter(typeof(NullableTimeSpanSecondsToIntConverter))]
+        public TimeSpan? SetupDuration { get; set; }
+        
+        /// <summary>
         /// List of ints describing multidimensional quantities for delivery.
         /// </summary>
         [JsonPropertyName("delivery")]

@@ -35,6 +35,13 @@ namespace VROOM
         public TimeSpan Service { get; set; }
         
         /// <summary>
+        /// Setup time at this step.
+        /// </summary>
+        [JsonPropertyName("setup")]
+        [JsonConverter(typeof(TimeSpanSecondsToIntConverter))]
+        public TimeSpan Setup { get; set; }
+        
+        /// <summary>
         /// Waiting time upon arrival at this step.
         /// </summary>
         [JsonPropertyName("waiting_time")]
