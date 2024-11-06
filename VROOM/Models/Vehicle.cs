@@ -3,6 +3,28 @@ using System.Text.Json.Serialization;
 
 namespace VROOM
 {
+    public class Costs
+    {
+        /// <summary>
+        /// integer defining the cost of using this vehicle in the solution (defaults to 0)
+        /// </summary>
+        [JsonPropertyName("fixed")]
+        public int Fixed { get; set; }
+        
+        /// <summary>
+        /// integer defining the cost for one hour of travel time with this vehicle (defaults to 3600)
+        /// Using a non-default per-hour value means defining travel costs based on travel times with a multiplicative factor. So in particular providing a custom costs matrix for the vehicle is inconsistent and will raise an error.
+        /// </summary>
+        [JsonPropertyName("per_hour")]
+        public int PerHour { get; set; }
+        
+        /// <summary>
+        /// integer defining the cost for one km of travel time with this vehicle (defaults to 0)
+        /// </summary>
+        [JsonPropertyName("per_km")]
+        public int PerKm { get; set; }
+    }
+
     public class Vehicle
     {
         /// <summary>
@@ -28,6 +50,12 @@ namespace VROOM
         /// </summary>
         [JsonPropertyName("start")] 
         public Coordinate? Start { get; set; }
+        
+        /// <summary>
+        /// Costs for this vehicle.
+        /// </summary>
+        [JsonPropertyName("costs")] 
+        public Costs? Costs { get; set; }
 
         /// <summary>
         /// The start index of the vehicle in custom matrices. Only needed if supplying custom matrix.

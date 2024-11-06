@@ -31,5 +31,11 @@ namespace VROOM
         [JsonPropertyName("service")]
         [JsonConverter(typeof(NullableTimeSpanSecondsToIntConverter))]
         public TimeSpan? Duration { get; set; }
+        
+        /// <summary>
+        /// an array of integers describing the maximum vehicle load for which this break can happen
+        /// </summary>
+        [JsonPropertyName("max_load")]
+        public List<int>? MaxLoad { get; set; }
     }
 }
